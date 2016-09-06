@@ -1,0 +1,26 @@
+<ion-view view-title="Exame" ng-controller="ExameDtlCtrl" ng-init="getExame(false)">
+  <ion-content>
+    <div class="button-bar">
+      <a class="button icon ion-plus-circled" ng-click="novoExame() "> Novo</a>
+      <a ng-show="!exame.id > 0" class="button icon ion-checkmark-circled" ng-click="salvarExame()"> Salvar</a>
+      <a ng-show="exame.id > 0" class="button icon ion-images" ng-click="getExame(true)"> Imagens</a>
+      <a ng-show="exame.id > 0" class="button icon ion-android-textsms" href="#/app/laudo"> Laudo</a>
+    </div>
+    <div class="list">
+      <label class="item item-input">
+        <span class="input-label">Paciente</span>
+        <input type="text" ng-disabled="exame.id > 0" placeholder="Clique aqui para selecionar um paciente..." ng-click="openPaciente()" ng-model="exame.nomePaciente">
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Descrição</span>
+        <input type="text" ng-model="exame.descricao" ng-disabled="exame.id > 0">
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Indicação</span>
+        <textarea placeholder="Digite aqui a indicação para o exame..." ng-model="exame.indicacao" ng-disabled="exame.id > 0"></textarea>
+      </label>
+    </div>
+    <input type="text" ng-show="false" ng-model="exame.codigoPaciente">
+    <input type="text" ng-show="false" ng-model="exame.id">
+  </ion-content>
+</ion-view>

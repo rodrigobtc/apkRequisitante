@@ -1,0 +1,24 @@
+<ion-view view-title="Exame" ng-controller="ExameDtlCtrl">
+  <ion-content>
+    <div class="button-bar">
+      <a class="button icon ion-plus-circled" ng-click="novoExame() "> Novo</a>
+      <a class="button icon ion-checkmark-circled" ng-click="salvarExame()"> Salvar</a>
+    </div>
+    <div class="list">
+      <label class="item item-input">
+        <span class="input-label">Paciente</span>
+        <input type="text" placeholder="Clique aqui para selecionar um paciente..." ng-click="openPaciente()" ng-model="exame.nomePaciente">
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Descrição</span>
+        <input type="text" ng-model="exame.descricao">
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Indicação</span>
+        <textarea placeholder="Digite aqui a indicação para o exame..." ng-model="exame.indicacao"></textarea>
+      </label>
+    </div>
+    <input type="text" ng-show="false" ng-model="exame.codigoPaciente">
+    <input type="text" ng-show="true" ng-model="exame.id">
+  </ion-content>
+</ion-view>

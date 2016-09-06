@@ -1,0 +1,37 @@
+<ion-view view-title="Imagens" ng-controller="ImagensCtrl">
+  <ion-content>
+    <ion-slide-box show-pager="false">
+      <!--ion-slide>
+        <scroll-content>
+          <div ng-repeat="item in imagens">
+              <img ng-src="{{'data:image/jpeg;base64,'+ item.img}}" id="srcImage" width="100%" style="display: block; margin: 0 auto;" />
+              <br/> {{item.descricao}}
+          </div>
+        </scroll-content>
+      </ion-slide-->
+      <div class="button-bar">
+        <a class="button icon ion-ios-camera" ng-click="takePicture() "> Capturar</a>
+        <a class="button icon ion-upload" ng-click="uploadPicture()"> Upload</a>
+      </div>
+      <ion-slide ng-repeat="item in tipoFotos">
+
+
+        <div class="card">
+          <div>
+            <h1 class="title">{{item.descricao}}</h1>
+          </div>
+
+          <div class="item item-text-wrap">
+            {{item.mensagem}}
+          </div>
+        </div>
+        <div>
+          <img ng-src="{{picData}}" id="picData" width="100%" style="display: block; margin: 0 auto;" />
+        </div>
+        <div>
+          {{status}}
+        </div>
+      </ion-slide>
+    </ion-slide-box>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,9 @@
+<ion-view view-title="Exames" ng-controller="ExamesCtrl">
+  <ion-content>
+    <ion-list>
+        <ion-item ng-repeat="item in exames" href="#/app/exame/{{item.id}}">
+            {{item.id}} - {{item.descricao}}
+        </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

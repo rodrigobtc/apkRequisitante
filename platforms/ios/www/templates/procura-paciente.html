@@ -1,0 +1,20 @@
+<ion-modal-view ng-controller="PacientesCtrl">
+   <ion-header-bar>
+      <h1 class = "title">Procurando paciente</h1>
+   </ion-header-bar>
+
+   <ion-content>
+     <div class="list list-inset">
+       <label class="item item-input">
+         <input type="text" placeholder="Digite o nome do paciente" ng-model="pacienteData.searchText">
+       </label>
+       <button class="button icon ion-search" ng-click="getPacientes()"></button>
+     </div>
+
+     <ion-list>
+         <ion-item ng-repeat="item in pacientes" ng-click="selecionaPaciente({{item}})">
+             {{item.id}} - {{item.nome}}
+         </ion-item>
+     </ion-list>
+   </ion-content>
+</ion-modal-view>

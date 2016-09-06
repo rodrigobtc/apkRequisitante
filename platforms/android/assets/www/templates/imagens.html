@@ -1,0 +1,39 @@
+<ion-view view-title="Imagens" ng-controller="ImagensCtrl">
+  <ion-content>
+    <ion-slide-box show-pager="false">
+      <ion-slide ng-repeat="item in exame.imagens">
+        <div class="button-bar">
+          <a class="button icon ion-ios-camera" ng-click="takePicture(item) "> Capturar</a>
+          <a ng-disabled="exame.picData !== undefined && exame.picData !== null" class="button icon ion-upload" ng-click="uploadPicture(item)"> Upload</a>
+        </div>
+
+        <div class="card">
+          <div>
+            <h1 class="title">{{item.descricao}}</h1>
+          </div>
+
+          <div class="item item-text-wrap">
+            {{item.mensagem}}
+          </div>
+        </div>
+        <card>
+          <div style="width:90%; vertical-align:middle;" ng-show="porcentagem > 0">
+            <p style="width:100%">Enviando</p>
+            <progress style="width:100%" max="100" value="{{porcentagem}}" class="html5">
+                <div class="progress-bar">
+                    <!--span style="width: 80%">tantos%</span-->
+                </div>
+            </progress>
+          </div>
+          <div>
+            <img ng-show="item.img != null && item.img !== undefined" ng-src="{{strBase64+item.img}}" id="{{item.imgId}}" width="95%" style="display: block; margin: 0 auto;" />
+          </div>
+
+          <div>
+            {{status}}
+          </div>
+        </card>
+      </ion-slide>
+    </ion-slide-box>
+  </ion-content>
+</ion-view>
