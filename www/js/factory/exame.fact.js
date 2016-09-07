@@ -1,4 +1,4 @@
-myApp.factory('exameFactory', function(){
+myApp.factory('exameFactory', function(connService){
   var examePriv = {};
 
   return {

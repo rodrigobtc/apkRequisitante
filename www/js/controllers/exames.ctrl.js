@@ -1,14 +1,10 @@
-myApp.controller('ExamesCtrl', function($scope, $http, $stateParams, $ionicLoading, CONFIGURACOES) {
+myApp.controller('ExamesCtrl', function($scope, connService) {
     $scope.exames = [];
     $scope.getExames = function() {
-        $ionicLoading.show();
         $scope.random = Math.random();
-        $http.get('http://' + CONFIGURACOES.baseUrl + '/exames')
-            .then(function(data, status, headers, config) {
-                $scope.exames = data.data;
-                $ionicLoading.hide();
-            }, function(data, status, headers, config) {
-                $ionicLoading.hide();
-            });
-    }
+        connService.getREST('/exames/')
+          .then(function(exames) {
+            $scope.exames = exames;
+        })
+      }
 });
