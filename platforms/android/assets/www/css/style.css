@@ -263,3 +263,7 @@ p[data-value]:after {
   display: flex;
   flex-direction: row;
 }
+
+.mynavbar{
+  height: 200px !important;
+}

@@ -1,6 +1,10 @@
 <ion-view view-title="Exames" ng-controller="ExamesCtrl">
   <ion-content>
     <div class="button-bar">
+      Mostrando de &nbsp;
+      <input type="date" ng-model="dataInicial">
+      &nbsp;até&nbsp;
+      <input type="date" ng-model="dataFinal">
       <a class="button icon-right ion-refresh" ng-click="getExames()"></a>
     </div>
     <ion-list>

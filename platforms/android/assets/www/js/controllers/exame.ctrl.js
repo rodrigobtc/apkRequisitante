@@ -1,32 +1,34 @@
 myApp.controller('ExameDtlCtrl', function($scope,
-  $http,
   $stateParams,
   exameFactory,
-  $ionicLoading,
   $location,
+  connService,
   CONFIGURACOES) {
 
     $scope.idExame;
 
     $scope.getExame = function(mostraImagens) {
-            $ionicLoading.show()
             $scope.idExame = $stateParams.exameId;
-            $http.get('http://' + CONFIGURACOES.baseUrl + '/exames/' + $scope.idExame + '/' + mostraImagens)
-                .then(function(data, status, headers, config) {
-                    exameFactory.setExame(data.data);
-                    $scope.exame = exameFactory.getExame();
-                    $ionicLoading.hide();
-                    if (mostraImagens) {
-                      window.location.href = "#/app/imagens";
-                    }
-                }, function(data, status, headers, config) {
-                    $ionicLoading.hide();
-                });
+            connService.getREST('/exames/' + $scope.idExame + '/' + mostraImagens)
+              .then(function(exameDetalhe) {
+                exameFactory.setExame(exameDetalhe);
+                $scope.exame = exameFactory.getExame();
+                if (mostraImagens) {
+                  window.location.href = "#/app/imagens";
+                }
+            })
     }
 
     $scope.salvarExame = function() {
-        $ionicLoading.show({template:'Informações salvas.', duration:3000});
+        connService.postREST('/exames', $scope.exame)
+        .then(
+          function(retorno) {
+            exameFactory.setExame(retorno.data);
+            window.location.href = "#/app/exame/" + retorno.data.id + "/" + 1;
+          }
+        );
 
+        /*
         $http({
                 method: 'POST',
                 //url: 'http://requestb.in/tl9pratl',
@@ -43,7 +45,7 @@ myApp.controller('ExameDtlCtrl', function($scope,
                   //$ionicLoading.show({template:'Ocorreu um problema ao salvar informações', duration:5000});
                   $ionicLoading.show(response.data);
                   //window.location.href = "#/app/exame/" + $scope.exame.id
-                });
+                });*/
     }
 
     $scope.novoExame = function() {
