@@ -1,0 +1,100 @@
+<ion-view view-title="Laudar Exame" ng-controller="LaudarCtrl" ng-init="getLaudo(false)">
+  <ion-content>
+    <div class="button-bar">
+      <a class="button icon ion-checkmark-circled" ng-click="salvarLaudo()"> Salvar</a>
+      <a ng-show="laudo.exame.id > 0" class="button icon ion-images" ng-click="getExame(true)"> Imagens</a>
+    </div>
+    <ion-slide-box show-pager="false">
+      <ion-slide>
+        <card>
+          <div class="item item-divider">
+              Descrição do exame
+          </div>
+          <div class="item item-text-wrap">
+            <i>{{laudo.exame.descricao}}</i>
+          </div>
+          <div class="item item-divider">
+              Indicação do exame
+          </div>
+          <div class="item item-text-wrap">
+            <i>{{laudo.exame.indicacao}}</i>
+          </div>
+        </card>
+      </ion-slide>
+      <ion-slide>
+        <card>
+          <div class="item item-divider">
+              Descrição do Estudo
+          </div>
+          <div class="item item-text-wrap">
+            <textarea placeholder="Digite a descrição do estudo..." ng-model="laudo.descricaoEstudo"></textarea>
+          </div>
+        </card>
+      </ion-slide>
+      <ion-slide ng-repeat="secao in laudo.secoesLaudo">
+        <card>
+          <div class="item item-divider">
+              {{ secao.descricao }}
+          </div>
+          <div class="item item-text-wrap">
+            <ion-checkbox ng-repeat="ckBox in secao.detalhesLaudo"
+              ng-model="ckBox.marcado"
+              ng-checked="ckBox.marcado">
+              {{ ckBox.descricao }}
+            </ion-checkbox>
+          </div>
+        </card>
+      </ion-slide>
+      <ion-slide>
+        <card>
+          <div class="item item-divider">
+              <h1>Tamanho<h1>
+          </div>
+          <div class="item item-text-wrap">
+            <select>
+              <option>< 1</option>
+              <option selected>1 a 2</option>
+              <option>2 a 4</option>
+              <option>> 4</option>
+            </select>
+          </div>
+        </card>
+        <card>
+          <div class="item item-divider">
+              <h1>Distribuição<h1>
+          </div>
+          <div class="item item-text-wrap">
+            <ion-checkbox>
+              Única
+            </ion-checkbox>
+            <ion-checkbox>
+              Localizada
+            </ion-checkbox>
+            <ion-checkbox>
+              Disseminada
+            </ion-checkbox>
+            <ion-checkbox>
+              Generalizada
+            </ion-checkbox>
+          </div>
+        </card>
+        <card>
+          <div class="item item-divider">
+              <h1>Outras Informações Pertinentes<h1>
+          </div>
+          <div class="item item-text-wrap">
+            <textarea placeholder="Maiores informações..." ng-model="laudo.outrasInformacoes"></textarea>
+          </div>
+        </card>
+        <card>
+          <div class="item item-divider">
+              <h1>Conclusão<h1>
+          </div>
+          <div class="item item-text-wrap">
+            <textarea placeholder="Digite a conclusão..." ng-model="laudo.conclusao"></textarea>
+          </div>
+        </card>
+      </ion-slide>
+    </ion-slide-box>
+  </ion-content>
+</ion-view>

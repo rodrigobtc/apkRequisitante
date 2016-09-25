@@ -1,11 +1,6 @@
-<ion-view view-title="Exames" ng-controller="ExamesCtrl">
+<ion-view view-title="Laudos" ng-controller="LaudosCtrl">
   <ion-content>
-    <!--div class="button-bar">
-      Mostrando de &nbsp;
-      <input type="date" ng-model="dataInicial">
-      &nbsp;até&nbsp;
-      <input type="date" ng-model="dataFinal"-->
-      <a class="button icon-right ion-refresh" ng-click="getExames()"></a>
+      <a class="button icon-right ion-refresh" ng-click="getExamesLaudos()"></a>
     </div>
     <div class="row">
       <div class="col col-10">
@@ -18,7 +13,7 @@
         Status
       </div>
     </div>
-    <div class="row" ng-repeat="item in exames" ng-click="abreExame({{item.id}}, {{random}}, 'exame')">
+    <div class="row" ng-repeat="item in exames" ng-click="abreLaudo({{item.id}}, {{random}}, 'laudar')">
       <div class="col col-10">
         {{item.id}}
       </div>

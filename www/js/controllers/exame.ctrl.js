@@ -1,7 +1,6 @@
 myApp.controller('ExameDtlCtrl', function($scope,
   $stateParams,
   exameFactory,
-  $location,
   connService,
   CONFIGURACOES) {
 
@@ -27,25 +26,6 @@ myApp.controller('ExameDtlCtrl', function($scope,
             window.location.href = "#/app/exame/" + retorno.data.id + "/" + 1;
           }
         );
-
-        /*
-        $http({
-                method: 'POST',
-                //url: 'http://requestb.in/tl9pratl',
-                url: 'http://' + CONFIGURACOES.baseUrl + '/exames',
-                data: $scope.exame
-            })
-            .then(
-                function(response) {
-                  $ionicLoading.show({template:'Informações salvas.', duration:3000});
-                  exameFactory.setExame($scope.exame);
-                  window.location.href = "#/app/exame/" + response.data.id + "/" + 1
-                },
-                function(response) {
-                  //$ionicLoading.show({template:'Ocorreu um problema ao salvar informações', duration:5000});
-                  $ionicLoading.show(response.data);
-                  //window.location.href = "#/app/exame/" + $scope.exame.id
-                });*/
     }
 
     $scope.novoExame = function() {

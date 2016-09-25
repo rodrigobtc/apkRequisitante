@@ -1,14 +1,44 @@
 <ion-view view-title="Exames" ng-controller="ExamesCtrl">
   <ion-content>
-    <div class="button-bar">
+    <!--div class="button-bar">
+      Mostrando de &nbsp;
       <input type="date" ng-model="dataInicial">
-      <input type="date" ng-model="dataFinal">
+      &nbsp;até&nbsp;
+      <input type="date" ng-model="dataFinal"-->
       <a class="button icon-right ion-refresh" ng-click="getExames()"></a>
     </div>
-    <ion-list>
-        <ion-item ng-repeat="item in exames" href="#/app/exame/{{item.id}}/{{random}}">
-            {{item.id}} - {{item.descricao}}
-        </ion-item>
-    </ion-list>
+    <div class="row">
+      <div class="col col-10">
+        #
+      </div>
+      <div class="col col-70">
+        Descrição
+      </div>
+      <div class="col col-20">
+        Status
+      </div>
+    </div>
+    <div class="row" ng-repeat="item in exames" ng-click="abreExame({{item.id}}, {{random}}, 'exame')">
+      <div class="col col-10">
+        {{item.id}}
+      </div>
+      <div class="col col-70">
+        {{item.descricao}}
+      </div>
+      <div class="col col-20">
+        <i class="icon ion-star"></i>
+      </div>
+    </div>
+    <div class="row" ng-repeat="item in exames" ng-click="abreExame({{item.id}}, {{random}}, 'laudar')">
+      <div class="col col-10">
+        {{item.id}}
+      </div>
+      <div class="col col-70">
+        {{item.descricao}}
+      </div>
+      <div class="col col-20">
+        <i class="icon ion-star"></i>
+      </div>
+    </div>
   </ion-content>
 </ion-view>

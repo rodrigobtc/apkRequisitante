@@ -1,12 +1,12 @@
-myApp.controller('ExamesCtrl', function($scope, connService) {
+myApp.controller('LaudosCtrl', function($scope, connService) {
     $scope.exames = [];
 
     // datas para preencher os objetos de filtro
     $scope.dataInicial = new Date();
     $scope.dataFinal = new Date();
 
-    
-    $scope.getExames = function() {
+
+    $scope.getExamesLaudos = function() {
         $scope.random = Math.random();
         connService.getREST('/exames/')
           .then(function(exames) {
@@ -14,7 +14,7 @@ myApp.controller('ExamesCtrl', function($scope, connService) {
         })
       }
 
-      $scope.abreExame = function (exameId, random, funcao) {
+      $scope.abreLaudo = function (exameId, random, funcao) {
         window.location.href = '#/app/'+ funcao +'/'+ exameId + '/'+ random;
       }
 });
