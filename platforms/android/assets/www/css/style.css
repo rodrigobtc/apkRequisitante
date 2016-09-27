@@ -9,7 +9,29 @@ import url(http://fonts.googleapis.com/css?family=Expletus+Sans);
 
 body {
 }
+/*
+.header .col {
+    background-color:lightgrey;
+}
 
+.col {
+    border: solid 1px grey;
+    border-bottom-style: none;
+    border-right-style: none;
+}
+
+.atent .col {
+  background-color:pink;
+}
+
+.col:last-child {
+    border-right: solid 1px grey;
+}
+
+.row:last-child .col {
+    border-bottom: solid 1px grey;
+}
+*/
 li {
 
     width: 100%;
@@ -258,30 +280,3 @@ p[data-value]:after {
 
 
 /* THE END */
-
-.slider-slides{
-  display: flex;
-  flex-direction: row;
-}
-
-.mynavbar{
-  height: 200px !important;
-
-}
-
-/* GRID */
-.center-content > *  {
-    -webkit-box-ordinal-group: 1;
-    -moz-box-ordinal-group: 1;
-    -webkit-order: 0;
-    -ms-flex-order: 0;
-    order: 0;
-    -webkit-box-flex: 0;
-    -moz-box-flex: 0;
-    -webkit-flex: 0 1 auto;
-    -ms-flex: 0 1 auto;
-    flex: 0 1 auto;
-    -webkit-align-self: stretch;
-    -ms-flex-item-align: stretch;
-    align-self: stretch;
-  }

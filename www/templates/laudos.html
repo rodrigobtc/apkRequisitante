@@ -1,8 +1,18 @@
 <ion-view view-title="Laudos" ng-controller="LaudosCtrl">
   <ion-content>
       <a class="button icon-right ion-refresh" ng-click="getExamesLaudos()"></a>
+      <onezone-datepicker datepicker-object="datainicio">
+          <button class="button button-block button-outline button-positive show-onezone-datepicker">
+              Data início: {{datainicio.date | date:'dd/MM/yyyy'}}
+          </button>
+      </onezone-datepicker>
+      <onezone-datepicker datepicker-object="datafim">
+          <button class="button button-block button-outline button-positive show-onezone-datepicker">
+              Data fim: {{datafim.date | date:'dd/MM/yyyy'}}
+          </button>
+      </onezone-datepicker>
     </div>
-    <div class="row">
+    <div class="row header" style="border: solid 1px grey;">
       <div class="col col-10">
         #
       </div>
@@ -13,7 +23,7 @@
         Status
       </div>
     </div>
-    <div class="row" ng-repeat="item in exames" ng-click="abreLaudo({{item.id}}, {{random}}, 'laudar')">
+    <div class="row" style="{{'spacing=2;'+(item.id %2 == 0 ? 'background-color:pink;': 'background-color:lightblue')}}" ng-repeat="item in exames" ng-click="abreLaudo({{item.id}}, {{random}}, 'laudar')">
       <div class="col col-10">
         {{item.id}}
       </div>

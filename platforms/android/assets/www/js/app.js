@@ -3,7 +3,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-var app = angular.module('starter', ['ionic', 'starter.controllers'])
+var app = angular.module('starter', ['ionic', 'starter.controllers', 'onezone-datepicker'])
 
 .run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {
@@ -40,6 +40,16 @@ var app = angular.module('starter', ['ionic', 'starter.controllers'])
             }
         }
     })
+
+        .state('app.laudoss', {
+            url: '/laudoss',
+            views: {
+                'menuContent': {
+                    templateUrl: 'templates/laudos.html',
+                    controller: 'LaudosCtrl'
+                }
+            }
+        })
 
     .state('app.imagens', {
         url: '/imagens',

@@ -1,9 +1,55 @@
-myApp.controller('LaudosCtrl', function($scope, connService) {
+myApp.controller('LaudosCtrl', function($scope, connService, $ionicLoading) {
     $scope.exames = [];
 
     // datas para preencher os objetos de filtro
     $scope.dataInicial = new Date();
     $scope.dataFinal = new Date();
+
+    $scope.datainicio = {
+        date: new Date(), // MANDATORY
+        mondayFirst: false,
+        months: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+        daysOfTheWeek: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'],
+        startDate: new Date(1989, 1, 26),
+        endDate: new Date(2089, 1, 26),
+        disablePastDays: false,
+        disableSwipe: false,
+        disableWeekend: false,
+        //disableDates: disableDates,
+        //disableDaysOfWeek: disableDaysOfWeek,
+        showDatepicker: false,
+        showTodayButton: true,
+        calendarMode: false,
+        hideCancelButton: true,
+        hideSetButton: true,
+        //highlights: highlights
+        callback: function(value){
+            // your code
+        }
+    };
+
+    $scope.datafim = {
+        date: new Date(), // MANDATORY
+        mondayFirst: false,
+        months: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+        daysOfTheWeek: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'],
+        startDate: new Date(1989, 1, 26),
+        endDate: new Date(2089, 1, 26),
+        disablePastDays: false,
+        disableSwipe: false,
+        disableWeekend: false,
+        //disableDates: disableDates,
+        //disableDaysOfWeek: disableDaysOfWeek,
+        showDatepicker: false,
+        showTodayButton: true,
+        calendarMode: false,
+        hideCancelButton: true,
+        hideSetButton: true,
+        //highlights: highlights
+        callback: function(value){
+            // your code
+        }
+    };
 
 
     $scope.getExamesLaudos = function() {
@@ -17,4 +63,5 @@ myApp.controller('LaudosCtrl', function($scope, connService) {
       $scope.abreLaudo = function (exameId, random, funcao) {
         window.location.href = '#/app/'+ funcao +'/'+ exameId + '/'+ random;
       }
+
 });
